@@ -1,0 +1,27 @@
+body {
+    background: tomato;
+    font-family: "Arial Narrow";
+    padding: 1em 4em;
+}
+
+label.break, button{
+    display: block;
+    margin: 1em 0;
+    border: none;
+}
+
+label, p {
+    color: #f3f3f3;
+}
+
+button {
+    background: #f3f3f3;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+.error {
+    background: #414141;
+    padding: 1em;
+    font-size: 1em;
+}
