@@ -78,10 +78,9 @@ button:hover {
     cursor: pointer;
 }
 
-#show1, #show {
+#show, #close {
 
     padding: 10px;
-    opacity: 1;
     color: #414141;
     background: white;
     border: 0px solid #414141;
@@ -92,68 +91,45 @@ button:hover {
    position: absolute;
     bottom: 10px;
     right: 10px;
-    z-index: 100;
     text-align: center;
      -webkit-transition: 1s ease-in-out;
     transition: 1s ease-in-out;
 }
 
-#hide1, #hide {
+#menu {
+    z-index: 99;
+     opacity: 0;
+
+}
+
+#show {
+    z-index: 100;
+     opacity: 1;
+}
+
+#show:focus {
+    background: #999;
+}
+
+#menu {
 
     padding: 10px;
-    opacity: 0;
-     z-index: 100;
-    color: #fff;
-    background: #414141;
+    opacity: 1;
+    z-index: 0;
+    color: #414141;
+    background: #fff;
     border: 0px solid #414141;
     font-weight: 400;
     font-size: 100%;
     position: absolute;
-    bottom: 130px;
-    right: 10px;
+    bottom: 40px;
+    left: 10px;
     text-align: center;
     text-transform: capitalize;
 
 }
 
-p {
-    position: absolute;
-    bottom:0; left:0; width: 100%; background: white;
-    z-index: 0;
-    opacity: 0;
-    padding: 1em;
-     -webkit-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
-}
 
-#show:focus ~ img { -webkit-transform: translateY(75px);
-        -ms-transform: translateY(75px);
-            transform: translateY(-175px);
-     -webkit-transition: 1s ease-in-out;
-    transition: 1s ease-in-out;
-opacity: .6;
-cursor: pointer;
-}
-
-#show:focus ~ p {
-    opacity: 1;
-    -webkit-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
-}
-
-#hide:focus ~ p {
-    opacity: 0;
-       -webkit-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
-}
-
-#show:focus, #hide:focus, #show:focus ~ #next {
-    opacity: 0;
-}
-
-#show:focus ~ #hide {
-    opacity: 1;
-}
 
 span {
     display: block;
@@ -181,36 +157,25 @@ span {
  *Scrolling
  */
 
-a[ id= "servicios" ]:target ~ #main article.panel {
+a[ id= "open" ]:target ~ .panel {
     -webkit-transform: translateY( 0px);
     -ms-transform: translateY( 0px );
-        transform: translateY( 0px );
+        transform: translateY( -175px );
 }
 
-a[ id= "servicios" ]:target ~ #main #galeria button,
-a[ id= "servicios" ]:target ~ #main #galeria a {
+a[ id= "open" ]:target ~ #show {
+    opacity: 0;
     visibility: hidden;
 }
 
-a[ id= "servicios" ]:target ~ #main #contacto button,
-a[ id= "servicios" ]:target ~ #main #contacto a {
-    visibility: hidden;
+a[ id= "open" ]:target ~ #close {
+    opacity: 1;
 }
 
-a[ id= "servicios" ]:target ~ .nav li [href="#servicios"] {
-     color: #414141;
+a[ id= "close" ]:target ~ #close {
+    opacity: 0;
 }
 
-
-a[ id= "galeria" ]:target ~ #main #servicios button,
-a[ id= "galeria" ]:target ~ #main #servicios a {
-    visibility: hidden;
-}
-
-a[ id= "galeria" ]:target ~ #main #contacto button,
-a[ id= "galeria" ]:target ~ #main #contacto a {
-    visibility: hidden;
-}
 
 a[ id= "galeria" ]:target ~ #main article.panel {
     -webkit-transform: translateY( -100% );
@@ -218,19 +183,6 @@ a[ id= "galeria" ]:target ~ #main article.panel {
         transform: translateY( -100% );
 }
 
-a[ id= "galeria" ]:target ~ .nav li [href="#galeria"] {
-     color: #414141;
-}
-
-a[ id= "contacto" ]:target ~ #main #servicios button,
-a[ id= "contacto" ]:target ~ #main #servicios a {
-    visibility: hidden;
-}
-
-a[ id= "contacto" ]:target ~ #main #galeria button,
-a[ id= "contacto" ]:target ~ #main #galeria a {
-    visibility: hidden;
-}
 
 a[ id= "contacto" ]:target ~ #main article.panel {
     -webkit-transform: translateY( -200% );
@@ -238,6 +190,3 @@ a[ id= "contacto" ]:target ~ #main article.panel {
         transform: translateY( -200% );
 }
 
-a[ id= "contacto" ]:target ~ .nav li [href="#contacto"] {
-     color: #414141;
-}
