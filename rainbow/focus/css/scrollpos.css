@@ -5,6 +5,10 @@
             transition: .5s;
 }
 
+:focus {
+    outline: 0px solid;
+}
+
 #setPos {
     position: fixed;
     left: 10px;
@@ -28,15 +32,29 @@
     width: 35px;
     text-align: center;
     left: 16%;
+    background: tomato;
+    border: 0px solid;
     bottom: 10px;
     color: #fafafa;
+    position: fixed;
 }
 
 button {
     cursor: pointer;
 }
 
-#here {opacity: 0; font-size: 120%; line-height: 35px; height: 35px; width: 200px; font-weight: 400; color: #414141;}
+#here {
+    opacity: 0;
+    font-size: 120%;
+    line-height: 35px;
+    height: 35px;
+    width: 200px;
+    font-weight: 400;
+    color: #414141;
+    display: block;
+    position: absolute;
+    right: 135px;
+}
 
 .content {
 		width: 45%;

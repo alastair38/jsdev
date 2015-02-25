@@ -40,25 +40,25 @@
 	<script src="js/scrollpos.js"></script>
 	<script>
 $(document).ready(function(){
+    var t =  window.innerHeight;
+    var url = window.location.href;
     $("#setPos").click(function(){
         var s = $('body').scrollTop();
-        var t = $(window).height();
-        var u = s + t - 45;
-        var url = window.location.href;
+        var u = s + t - 40;
         var savePos = localStorage.setItem(url, u);
         var pos = localStorage.getItem(url);
-        $("#here").css({"display": "block", "position": "absolute", "top": pos+"px", "right": "150px", "opacity": "1"});
-        $("#remPos").css({"display": "block", "border": "0px solid #414141", "position": "fixed", "opacity": "1"});
+        $("#here").css({"top": pos+"px", "opacity": "1"});
+        $("#remPos").css({"opacity": "1"});
         $('#setPos').text('Update bookmark');
     });
     window.onload = function () {
-        var t2 = $(window).height();
+        var t2 = window.innerHeight;
         var url2 = window.location.href;
-        var pos2 = localStorage.getItem(url2);
-        var there = pos2 - t2 + 40;
-        if(localStorage.getItem(url2)){
-                 $("#here").css({"display": "block", "position": "absolute", "top": localStorage.getItem(url2)+"px", "right": "150px", "opacity": "1"});
-             $("#remPos").css({"display": "block", "border": "0px solid #414141", "position": "fixed", "opacity": "1", "background": "tomato", "color": "white", "width": "35px"});
+        var pos2 = localStorage.getItem(url);
+        var there = pos2 - t + 40;
+        if(localStorage.getItem(url)){
+                 $("#here").css({"top": localStorage.getItem(url)+"px", "opacity": "1"});
+             $("#remPos").css({"opacity": "1"});
             $('#setPos').text('Update bookmark');
             $("body").animate({scrollTop: there});
             }
